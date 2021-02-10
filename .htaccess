@@ -1,0 +1,18 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+#htdoc directry name /<directry name>/
+#RewriteBase /TFM/
+#if you are using on online server then uncomment below line and comment above line
+#RewriteBase /
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([0-9a-zA-Z\/_-]+)$ index.php?link=$1 [QSA]
+RewriteRule ^404$ index.php?link=404 [QSA]
+RewriteRule ^403$ index.php?link=403 [QSA]
+
+
+# End of Apache Rewrite Rules
+</IfModule>

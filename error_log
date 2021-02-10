@@ -1,0 +1,4 @@
+[14-Jan-2021 16:59:57 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home2/imac/public_html/portal/vendor/phpmailer/phpmailer/src/PHPMailer.php:910) in /home2/imac/public_html/portal/assets/app_start_1.php on line 8
+[14-Jan-2021 16:59:57 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - headers already sent in /home2/imac/public_html/portal/assets/app_start_1.php on line 11
+[14-Jan-2021 17:00:27 UTC] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home2/imac/public_html/portal/vendor/phpmailer/phpmailer/src/SMTP.php:277) in /home2/imac/public_html/portal/assets/app_start_1.php on line 8
+[14-Jan-2021 17:00:27 UTC] PHP Warning:  session_regenerate_id(): Cannot regenerate session id - headers already sent in /home2/imac/public_html/portal/assets/app_start_1.php on line 11
