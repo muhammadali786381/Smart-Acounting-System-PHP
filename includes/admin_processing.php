@@ -757,6 +757,8 @@ if(isset($_POST['createNewProduct'])){
         "description"=> remove_xss($_POST['description'])
     ));
     if($res!=FALSE){
+        //insert logs
+        $user->insert_admin_log($_SESSION['adminId'],"New Product Added",remove_xss($res)); 
         SweetAlert("Added Successfuly", BASE_URL.$url['0']."/".$url['1'], "Success", "success");
     }else{
         SweetAlert("Fail.", BASE_URL.$url['0']."/".$url['1'], "ERROR", "error");
@@ -783,6 +785,22 @@ if(isset($_POST['updateProductPrice'])){
     
     $res=$main->update_record("products",["id"=>remove_xss($_POST['id'])],["sale_price"=>remove_xss($_POST['sale_price']),"buy_price"=>remove_xss($_POST['buy_price'])]);
     if($res=="UPDATED"){
+        //insert logs
+        $user->insert_admin_log($_SESSION['adminId'],"Update Product Price",remove_xss(remove_xss($_POST['id']))); 
+        SweetAlert("Update Successfuly", BASE_URL.$url['0']."/".$url['1'], "Success", "success");
+    }else{
+        SweetAlert("Fail.", BASE_URL.$url['0']."/".$url['1'], "ERROR", "error");
+    }
+   exit(); 
+}
+
+
+
+//update products price
+if(isset($_POST['updateAccountHeadOpeningBalance'])){
+    $res=$main->update_record("account_head",["id"=>remove_xss($_POST['id'])],["opening_balance"=>remove_xss($_POST['opening_balance'])]);
+    if($res=="UPDATED"){
+        $user->insert_admin_log($_SESSION['adminId'],"Update Head Opening Balance",remove_xss(remove_xss($_POST['id'])));
         SweetAlert("Update Successfuly", BASE_URL.$url['0']."/".$url['1'], "Success", "success");
     }else{
         SweetAlert("Fail.", BASE_URL.$url['0']."/".$url['1'], "ERROR", "error");

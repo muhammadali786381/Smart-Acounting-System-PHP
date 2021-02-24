@@ -36,6 +36,7 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
      //load constant pages in header
       include_once __DIR__.'/../'.ADMIN_DIR.'/views/top_bar.php';
       include_once __DIR__.'/../'.ADMIN_DIR.'/views/nav_bar.php';
+      //checkPermission();
     
     switch ($url['1']){
         //load login
@@ -61,9 +62,14 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
         
         //product list
         case "product-list":
+        if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:
         //get aa products
         $data=$main->getAllConditionRecords("products","company_id",$_SESSION['selectCompnayId'],"id");
-        include_once __DIR__.'/../'.ADMIN_DIR.'/views/product/product_list.php';
+        include_once __DIR__.'/../'.ADMIN_DIR.'/views/product/product_list.php';  
+        endif;    
+        
         break;
         
         //cash books
@@ -84,55 +90,94 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/ledger/links.php';
         break;
     
-        //ledger
+        //head list
         case "head-list":
+         if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:   
          $data=$main->getAllConditionRecords("account_head","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/heads/list.php';
+        endif;
         break;
+        
+       //ledger
+        case "head-open-balance":
+         if(!isSuperAdmin()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:   
+         $data=$main->getAllConditionRecords("account_head","company_id",$_SESSION['selectCompnayId'],"id");
+         //load view
+         include_once __DIR__.'/../'.ADMIN_DIR.'/views/heads/head_open_balance.php';
+        endif;
+        break; 
     
     
         //cash received voucher
         case "cash-received-voucher":
+         if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:   
          $data=$main->getAllConditionRecords("voucher","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/cashbook/crv/list.php';
+        endif; 
         break;
     
         //cash payment voucher
         case "cash-payment-voucher":
+        if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:    
          $data=$main->getAllConditionRecords("voucher","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/cashbook/cpv/list.php';
+        endif;
         break;
     
         //bank received voucher
         case "bank-receipt-voucher":
+        if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:    
          $data=$main->getAllConditionRecords("voucher","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/cashbook/brv/list.php';
+        endif; 
         break;
     
         //bank-payment-voucher
         case "bank-payment-voucher":
+        if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:    
          $data=$main->getAllConditionRecords("voucher","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/cashbook/bpv/list.php';
+        endif; 
         break;
         
          //journal-voucher
         case "journal-voucher":
+        if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:    
          $data=$main->getAllConditionRecords("voucher","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/cashbook/jv/list.php';
+        endif; 
         break;
     
         
          //sale-voucher
         case "sale-voucher":
+         if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:   
          $data=$main->getAllConditionRecords("product_transation","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/sale_purchase/sale/sale.php';
+         endif;
         break;
     
          //view sale-voucher
@@ -163,9 +208,13 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
         
          //purchase-voucher
         case "purchase-voucher":
+         if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:   
          $data=$main->getAllConditionRecords("product_transation","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/sale_purchase/purchase/purchase.php';
+        endif; 
         break;
         
     
@@ -199,6 +248,9 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
     
         //users get request
         case "users":
+       if(!isSuperAdmin()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:  
             //admin list AND Profile
             if($url[2]=="administrator" && isSuperAdmin()){
               //set list view 
@@ -258,6 +310,7 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
                 SweetAlert("Access denied.", BASE_URL.ADMIN_DIR."/", "Info", "info"); 
             }
             //end used view
+           endif; 
           break;
           
         /*
@@ -275,7 +328,11 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
           
         //load other offers list
         case "app-basic":
+         if(!isSuperAdmin()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:   
         include_once __DIR__.'/../'.ADMIN_DIR.'/views/appbasic/app_basic_setting.php';
+        endif;
         break;
     
     

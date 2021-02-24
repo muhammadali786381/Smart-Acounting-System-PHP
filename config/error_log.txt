@@ -815,3 +815,21 @@ Stack trace:
 [10-Feb-2021 21:56:09 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\zf_accounting\cp_admin\views\sale_purchase\sale\list.php on line 24
 [10-Feb-2021 21:56:43 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\zf_accounting\cp_admin\views\sale_purchase\sale\list.php on line 24
 [10-Feb-2021 22:02:31 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\zf_accounting\cp_admin\views\sale_purchase\sale\list.php on line 24
+[12-Feb-2021 22:49:53 Europe/Berlin] PHP Notice:  Undefined offset: 1 in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\head.php on line 7
+[12-Feb-2021 22:49:55 Europe/Berlin] PHP Notice:  Undefined offset: 1 in E:\SoftwareInstall\xampp\htdocs\sas\includes\admin_route.php on line 295
+[23-Feb-2021 16:26:17 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 16:26:17 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 16:26:17 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 16:38:29 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[23-Feb-2021 16:38:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[23-Feb-2021 17:53:58 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[23-Feb-2021 17:53:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[23-Feb-2021 22:14:29 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 22:14:29 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 22:14:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 22:14:37 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 22:14:37 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 22:14:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 22:14:47 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 22:14:47 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[23-Feb-2021 22:14:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50

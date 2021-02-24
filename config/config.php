@@ -6,11 +6,11 @@ ini_set('error_log',dirname(__FILE__).'/error_log.txt');
 error_reporting(E_ALL);
 
 //set site url example (http://yourdomain.com/);
-define("BASE_URL", "http://localhost/zf_accounting/");
+define("BASE_URL", "http://localhost/sas/");
 
 
 //in case online web server leave blank
-define("BASE_PATH", "zf_accounting/"); // lcoal setup case "serverpath/" //in case online remain blank as ""
+define("BASE_PATH", "sas/"); // lcoal setup case "serverpath/" //in case online remain blank as ""
 
 define("ADMIN_DIR","cp_admin"); //admin folder name use in code for redirection and other task
 

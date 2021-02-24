@@ -38,6 +38,11 @@ function isAccountant(){
     }
 }
 
+function checkPermission(){
+    global $url;
+    print_r($url);
+}
+
  //check login status for admin
    function isAdminLogin(){
     if(isset($_SESSION["adminId"])){

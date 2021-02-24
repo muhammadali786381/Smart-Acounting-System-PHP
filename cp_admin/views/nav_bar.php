@@ -61,6 +61,9 @@
             </a>
           </li>
           
+          <?php
+          if(isSuperAdmin() || isAccountant()):
+          ?>
           
           <li class="nav-item">
             <a href="<?php echo BASE_URL.ADMIN_DIR; ?>/head-list" class="nav-link <?php echo ($url['1']=="head-list")? "active":""; ?>">
@@ -70,7 +73,12 @@
              </p>
             </a>
           </li>
+          <?php
+          endif;
+         
           
+          if(isSuperAdmin()):
+          ?>
           <li class="nav-item has-treeview <?php echo ($url['1']=="users")? "menu-open":""; ?>">
             <a href="#" class="nav-link <?php echo ($url['1']=="users")? "active":""; ?>">
               <i class="nav-icon fas fa-users"></i>
@@ -96,6 +104,9 @@
              
             </ul>
           </li>
+          <?php 
+          endif;
+          ?>
           
 <!--          <li class="nav-item has-treeview <?php echo ($url['1']=="available-properties" || $url['1']=="other-properties")? "menu-open":""; ?>">
             <a href="#" class="nav-link <?php echo ($url['1']=="available-properties" || $url['1']=="other-properties")? "active":""; ?>">
@@ -187,7 +198,9 @@
           
           
 
-          
+          <?php
+          if(isSuperAdmin()):
+          ?>
           <li class="nav-header">Setting</li>
           <li class="nav-item has-treeview <?php echo ($url['1']=="product-list")? "menu-open":""; ?>">
             <a href="#" class="nav-link <?php echo ($url['1']=="product-list")? "active":""; ?>">
@@ -225,6 +238,19 @@
             </ul>
           </li>
           
+          <li class="nav-item">
+            <a href="<?php echo BASE_URL.ADMIN_DIR; ?>/head-open-balance" class="nav-link <?php echo ($url['1']=="head-open-balance")? "active":""; ?>">
+              <i class="nav-icon fas fa-money-bill-wave"></i>
+              <p>
+                Head Opening Balance
+             </p>
+            </a>
+          </li>
+          
+          
+          <?php
+          endif;
+          ?>
          
           
           <li class="nav-header">Others</li>

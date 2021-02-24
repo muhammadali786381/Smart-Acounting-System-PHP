@@ -24,6 +24,10 @@
             
             <div class="row">
                 
+                <?php
+                   if(!isAdmin()):
+                ?>
+                
                 <div class="col-12 col-sm-6 col-md-3">
                     <a href="<?php echo BASE_URL.ADMIN_DIR."/sale-voucher";?>"> 
                   <div class="info-box">
@@ -55,6 +59,9 @@
                 </div>
           <!-- /.col -->
 
+            <?php
+              endif;
+             ?>
 
            <div class="col-12 col-sm-6 col-md-3">
                     <a href="<?php echo BASE_URL.ADMIN_DIR."/report-of-sale-purchase";?>"> 
