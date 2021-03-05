@@ -28,10 +28,10 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
        include_once __DIR__.'/../'.ADMIN_DIR.'/views/footer_content.php';
        //exit
        exit();
-    }else{
-        //fetch selected company data
-        $select_company=$main->getSingleRecord("company_list","id",$_SESSION['selectCompnayId']);
-    }
+        }else{
+            //fetch selected company data
+            $select_company=$main->getSingleRecord("company_list","id",$_SESSION['selectCompnayId']);
+        }
     
      //load constant pages in header
       include_once __DIR__.'/../'.ADMIN_DIR.'/views/top_bar.php';
@@ -109,6 +109,18 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
          $data=$main->getAllConditionRecords("account_head","company_id",$_SESSION['selectCompnayId'],"id");
          //load view
          include_once __DIR__.'/../'.ADMIN_DIR.'/views/heads/head_open_balance.php';
+        endif;
+        break; 
+        
+        
+       //trille-balance list
+        case "trille-balance":
+         if(!isSuperAdmin() && !isAccountant() && !isAdmin()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:   
+         $data=$main->getAllConditionRecords("account_head","company_id",$_SESSION['selectCompnayId'],"id");
+         //load view
+         include_once __DIR__.'/../'.ADMIN_DIR.'/views/ledger/teller_balance/tb_report.php';
         endif;
         break; 
     
@@ -321,10 +333,21 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
          * 
          */
         
-         //load other offers list
+         //report
         case "report-of-sale-purchase":
         include_once __DIR__.'/../'.ADMIN_DIR.'/views/sale_purchase/report/report.php';
         break; 
+    
+    
+        //party-ledger
+        case "party-ledger":
+        include_once __DIR__.'/../'.ADMIN_DIR.'/views/ledger/party_ledger/report.php';
+        break;
+    
+        //report-of-cashbook
+        case "report-of-cashbook":
+        include_once __DIR__.'/../'.ADMIN_DIR.'/views/cashbook/report_of_cashbook/report.php';
+        break;
           
         //load other offers list
         case "app-basic":

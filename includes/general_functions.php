@@ -125,6 +125,15 @@ function getCompanyBankHead(){
     return $cr_head;
 }
 
+//get Ya Razzaq head
+function getYaRazzaqHead(){
+    if($_SESSION['selectCompnayId']==1){
+        $head_id=121;
+    }elseif($_SESSION['selectCompnayId']==2){
+        $head_id=10;
+    }
+    return $head_id;
+}
 
 
 

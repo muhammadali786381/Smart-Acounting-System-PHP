@@ -15,10 +15,17 @@
                      
                  <div class="form-group row">
                     <div class="col-sm-12">
-                    <label class="text-primary"><i class="fas fa-money-bill-wave"></i> Amount</label>
-                    <input type="number" step="0.01" name="opening_balance" placeholder="0.00" id="opening_balance" class="form-control" required="">
+                    <label class="text-primary"><i class="fas fa-money-bill-wave"></i> Opening Balance (DR)</label>
+                    <input type="number" step="0.01" name="opening_dr_balance" placeholder="0.00" id="opening_dr_balance" class="form-control" required="">
                     </div>
                  </div>  
+                     
+                 <div class="form-group row">
+                    <div class="col-sm-12">
+                    <label class="text-primary"><i class="fas fa-money-bill-wave"></i> Opening Balance (CR)</label>
+                    <input type="number" step="0.01" name="opening_cr_balance" placeholder="0.00" id="opening_cr_balance" class="form-control" required="">
+                    </div>
+                 </div>      
                      
                      
 <!--                 <div class="form-group row">
@@ -54,9 +61,11 @@
       //get detail of club
       $(".update-model").on('click',function(){  
            var id=$(this).attr("data-id"); 
-           var opening_balance=$(this).attr("data-open-bal");
+           var opening_dr_balance=$(this).attr("data-open-dr-bal");
+           var opening_cr_balance=$(this).attr("data-open-cr-bal");
            $("#edit_id").val(id);
-           $("#opening_balance").val(opening_balance);
+           $("#opening_dr_balance").val(opening_dr_balance);
+           $("#opening_cr_balance").val(opening_cr_balance);
            $('#ViewDetail').modal('show');  
                        
       });

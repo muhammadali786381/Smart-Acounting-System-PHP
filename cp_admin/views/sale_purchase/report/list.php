@@ -1,4 +1,13 @@
-        
+        <?php
+//         $get_profit=$main->select_records("voucher", 
+//                                        array(
+//                                    "type"=>"y.r.v",
+//                                    "product_transaction_id"=>"65"
+//                                    )
+//                                        );
+//                                echo "<pre>";        
+//                                print_r($get_profit);
+        ?>
            <div class="card <?php echo $view->app_config("APP_TABLE_HEAD_COLOR_CLASS");?>">
               <div class="card-header">
                <h3 class="card-title">Sale Purchase Report</h3>
@@ -44,8 +53,9 @@
                     <th width="">Invoice ID</th>
                     <th width="">Note</th>
                     
-                    <th width="">Purchase</th>
-                    <th width="">Sale</th>
+                    <th width="">Purchase (CR)</th>
+                    
+                    <th width="">Sale (DR)</th>
                     
                     <th width="">Stock</th>
                   </tr>
@@ -54,7 +64,7 @@
                   <?php
                   if($data!="NO_DATA"):
                       $stock=0;
-                      $profit=0;
+                      $yar_razzaq_profit=0;
                       $total_buy=0;
                       $total_sale=0;
                       $i=1;
@@ -62,6 +72,12 @@
                             if($row['company_id']==$_SESSION['selectCompnayId']):
                              //calculate balance
                             if($row['type']=="1"){
+                               //get ya razzaq profile 
+                               $get_profit=$main->select_records("voucher", array("type"=>"y.r.v","product_transaction_id"=>$row['invoice_id']));
+                               if($get_profit!="NO_DATA"){
+                                 $yar_razzaq_profit+=$get_profit[0]['amount'];  
+                               }
+                               
                                $stock-=$row['qty'];
                                $sale=$row['qty']*$row['sale_price'];
                                $total_sale+=$sale;
@@ -92,9 +108,43 @@
 <!--                      <td colspan=""></td>
                       <td colspan=""></td>
                       <td colspan=""></td>-->
+                      
                       <td colspan="" class="text-right"><b>Total: <?php echo currency_format($total_buy);?> </b></td>
-                      <td colspan="" class="text-right"><b>Total: <?php echo currency_format($total_sale);?></b></td>
+<!--                      <td colspan="" class="text-right"><b>Total: <?php echo currency_format($total_sale);?></b></td>-->
+                     <td colspan=""></td>
+                     <td colspan=""></td>
+                  </tr>
+                  
+                  <tr>
+                      <td colspan="4"></td>
+<!--                      <td colspan=""></td>
                       <td colspan=""></td>
+                      <td colspan=""></td>-->
+                      
+                      <td colspan="" class="text-right"><b>G.Profit: <?php echo currency_format(($total_sale-$total_buy)-$yar_razzaq_profit);?> </b></td>
+                      <td colspan=""></td>
+                  </tr>
+                  
+                  <tr>
+                      <td colspan="4"></td>
+<!--                      <td colspan=""></td>
+                      <td colspan=""></td>
+                      <td colspan=""></td>-->
+                      
+                      <td colspan="" class="text-right"><b>YR: <?php echo currency_format($yar_razzaq_profit);?> </b></td>
+                     
+                      <td colspan=""></td>
+                  </tr>
+                  
+                  <tr>
+                      <td colspan="4"></td>
+<!--                      <td colspan=""></td>
+                      <td colspan=""></td>
+                      <td colspan=""></td>-->
+                      
+                      <td colspan="" class="text-right"><b>Grand Total: <?php echo currency_format($total_buy+($total_sale-$total_buy));?> </b></td>
+                      <td colspan="" class="text-right"><b>Grand Total: <?php echo currency_format($total_sale);?></b></td>
+                     <td colspan=""></td>
                   </tr>
                   <?php 
                    endif;

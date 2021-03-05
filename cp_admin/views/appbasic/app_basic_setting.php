@@ -55,7 +55,14 @@
                    <div class="form-group">
                     <label class="text-primary">Phone</label>
                     <input type="text" class="form-control"  name="APP_PHONE" value="<?php echo $view->app_config("APP_PHONE")?>" required="">
-                  </div>   
+                  </div>  
+                  
+                  <div class="form-group">
+                    <label class="text-primary">YA RAZZAQ PERCENT</label>
+                    <input type="number" class="form-control"  name="APP_YA_RAZZAQ_PERCENT" value="<?php echo $view->app_config("APP_YA_RAZZAQ_PERCENT")?>" required="">
+                  </div>     
+                     
+                     
                      
                     
                 <button  type="submit" name="updateAppSetting" class="btn btn-primary btn-user btn-block">

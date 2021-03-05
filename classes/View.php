@@ -73,7 +73,7 @@ class View extends Main{
      */
     
     //get active head dropdown list
-    public function selectActiveHead($type){
+    public function selectActiveHead($type=""){
        $data= $this->getAllRecord("account_head");
         if($data!="NO_DATA"){
          foreach ($data as $row){
@@ -102,7 +102,7 @@ class View extends Main{
         if($data!="NO_DATA"){
          foreach ($data as $row){
              if($row['company_id']==$_SESSION['selectCompnayId']){
-              echo  "<option value=".$row['id'].">(".$row['id'].") ".$row['company_name']."-".$row['owner_name']." (".$this->viewStatus($row['status']).")</option>";
+              echo  "<option value=".$row['id'].">(".$row['id'].") ".$row['company_name']."-".$row['owner_name']." [ ". $this->viewHeadType($row['head_type']). " ] [".$this->viewStatus($row['status'])."] </option>";
              }
           }
        }

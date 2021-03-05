@@ -177,6 +177,7 @@ class Main{
                 }
 		
 	}
+        
         //update records
         public function update_record($table,$where,$fields){
                 $sql = "";
@@ -370,6 +371,14 @@ class Main{
 //echo "<pre>";
 //print_r($row);
 //$res=$test->sumValuesBaseTwoCondtion("consultant_withdraw_request","amount","user_id","100003","status","Verified");
+
+//$get_profit=$test->select_records("voucher", 
+//        array(
+//    "type"=>"y.r.v",
+//    "product_transaction_id"=>"65"
+//    )
+//        );
+//echo $get_profit;
 
 
     
