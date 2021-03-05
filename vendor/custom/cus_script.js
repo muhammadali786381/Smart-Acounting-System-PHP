@@ -1,3 +1,6 @@
+  
+ 
+ 
  $(function () {
    // Summernote
     $('.textarea').summernote({

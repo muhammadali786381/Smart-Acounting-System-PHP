@@ -44,6 +44,20 @@
 <script type="text/javascript" src="<?php echo BASE_URL;?>vendor/plugins/sweetalert/sweetalert.js"></script>
 <!-- select2 -->
 <script src="<?php echo BASE_URL;?>vendor/plugins/select2/js/select2.full.min.js"></script>
+
+<script>
+       //page loader
+        $(window).on("load",function(){
+            setTimeout(function(){ 
+                $(".loader-wrapper").fadeOut("slow"); 
+              }
+            ,1000);
+          
+        });
+        //end page loader
+</script> 
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
+    

@@ -1,5 +1,12 @@
 </div>
 <!-- ./wrapper -->
+
+<!-- page loader -->
+<div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+</div>
+<!-- ./ end page loader -->
+
 <script type="text/javascript">
     //print div
      function PrintNow(elem)
