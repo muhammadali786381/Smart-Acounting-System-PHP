@@ -15,3 +15,25 @@ INSERT INTO `setting` (`id`, `key_value`, `value`, `description`) VALUES (NULL, 
 ALTER TABLE `account_head` CHANGE `opening_balance` `opening_cr_balance` DECIMAL(15,2) NOT NULL DEFAULT '0.00'; 
 ALTER TABLE `account_head` ADD `opening_dr_balance` DECIMAL(15,2) NOT NULL DEFAULT '0.00' AFTER `opening_cr_balance`; 
 //above done
+
+
+
+//profit accont
+
+144-> company 2
+148-> company 1
+
+
+INSERT INTO `account_head` (`id`, `company_id`, `company_name`, `owner_name`, `cell_1`, `cell_2`, `address`, `head_type`, `opening_cr_balance`, `opening_dr_balance`, `status`, `create_on`, `update_on`) VALUES (NULL, '2', 'Stock Account ZA', 'ZA OWNER', '000000000000', '', 'multan', '4', '138510.00', '138510.00', '1', '2021-03-08 07:03:58', '2021-03-11 10:46:23'); 
+
+INSERT INTO `account_head` (`id`, `company_id`, `company_name`, `owner_name`, `cell_1`, `cell_2`, `address`, `head_type`, `opening_cr_balance`, `opening_dr_balance`, `status`, `create_on`, `update_on`) VALUES (NULL, '1', 'Stock Account ZF', 'ZF OWNER', '000000000000', '', 'multan', '4', '138510.00', '138510.00', '1', '2021-03-08 07:03:58', '2021-03-11 10:46:23'); 
+//stock accont
+149-> company 2
+150-> company 1
+
+//above done
+
+
+ALTER TABLE `voucher` CHANGE `type` `type` ENUM('c.r.v','c.p.v','b.p.v','b.r.v','j.v','s.v','p.v','y.r.v','g.p.v') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'y.r.v=> ya Razzaq voucher'; 
+
+//above done

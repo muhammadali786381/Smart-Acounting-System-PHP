@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Teller Balance</h1>
+            <h1>Trille Balance</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -45,7 +45,7 @@
                       if($data!="NO_DATA"):
                           foreach ($data as $row):
                           $cr=$main->sumValues("voucher","amount","cr_head_id",$row['id']);
-                          $dr=$main->sumValues("voucher","amount","cr_head_id",$row['id']);
+                          $dr=$main->sumValues("voucher","amount","dr_head_id",$row['id']);
                           //add last opening balance
                           $cr+=$row['opening_cr_balance'];
                           $dr+=$row['opening_dr_balance'];
@@ -75,10 +75,10 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th> </th>
+                    <th></th>
                     <th></th>
                     <th>Total Amount: <?php echo currency_format($total_dr);?></th>
-                    <th>Total Amount: <?php echo currency_format($total_dr);?></th>
+                    <th>Total Amount: <?php echo currency_format($total_cr);?></th>
                     <th></th>
                    </tr>
                 </tfoot>

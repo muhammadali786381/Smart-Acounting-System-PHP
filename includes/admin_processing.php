@@ -546,7 +546,7 @@ if(isset($_POST['createNewSaleVoucher'])){
                 array(
                  "type"=> remove_xss("s.v"),
                  "date"=> remove_xss(db_date_input($_POST['inv_date'])),
-                 "cr_head_id"=> remove_xss(getCompanyCashHead()),
+                 "cr_head_id"=> remove_xss(getStockHead()),
                  "dr_head_id"=> remove_xss($_POST['head_id']),
                  "note"=> remove_xss($_POST['note']),
                  "amount"=> remove_xss($sale_total),
@@ -558,14 +558,30 @@ if(isset($_POST['createNewSaleVoucher'])){
              //calculate
              $profit=$sale_total-$buy_total;
              $y_r_amount=(($profit*$view->app_config("APP_YA_RAZZAQ_PERCENT"))/100);
+             $gprofit=$profit-$y_r_amount;
              $y_r_voucher=$main->insert_record("voucher",
                 array(
                  "type"=> remove_xss("y.r.v"),
                  "date"=> remove_xss(db_date_input($_POST['inv_date'])),
-                 "cr_head_id"=> remove_xss(getCompanyCashHead()),
-                 "dr_head_id"=> remove_xss(getYaRazzaqHead()),
+                 "cr_head_id"=> remove_xss(getYaRazzaqHead()),
+                 "dr_head_id"=> remove_xss($_POST['head_id']),
                  "note"=> remove_xss($_POST['note']." [YR-". $view->app_config("APP_YA_RAZZAQ_PERCENT"). "%]"),
                  "amount"=> remove_xss($y_r_amount),
+                 "extra_amount"=> remove_xss(0.00),
+                 "admin_id"=> remove_xss($_SESSION['adminId']),
+                 "company_id"=> remove_xss($_SESSION['selectCompnayId']),
+                 "product_transaction_id"=> remove_xss($inv) 
+                 ));
+             
+             //create gross profit vouhcer
+             $g_profit_voucher=$main->insert_record("voucher",
+                array(
+                 "type"=> remove_xss("g.p.v"),
+                 "date"=> remove_xss(db_date_input($_POST['inv_date'])),
+                 "cr_head_id"=> remove_xss(getGrossProfitHead()),
+                 "dr_head_id"=> remove_xss($_POST['head_id']),
+                 "note"=> remove_xss($_POST['note']." [GP]"),
+                 "amount"=> remove_xss($gprofit),
                  "extra_amount"=> remove_xss(0.00),
                  "admin_id"=> remove_xss($_SESSION['adminId']),
                  "company_id"=> remove_xss($_SESSION['selectCompnayId']),
@@ -643,7 +659,7 @@ if(isset($_POST['createNewPurchaseVoucher'])){
                  "type"=> remove_xss("p.v"),
                  "date"=> remove_xss(db_date_input($_POST['inv_date'])),
                  "cr_head_id"=> remove_xss($_POST['head_id']),
-                 "dr_head_id"=> remove_xss(getCompanyCashHead()),
+                 "dr_head_id"=> remove_xss(getStockHead()),
                  "note"=> remove_xss($_POST['note']),
                  "amount"=> remove_xss($buy_total),
                  "extra_amount"=> remove_xss(0.00),
@@ -899,13 +915,15 @@ if(isset($_POST['partyLedgerQuery'])){
     //calculate balance
     if($client_voucher_list!="NO_DATA"){
            foreach ($client_voucher_list as $b){
-               if(($b['date']<db_date_input($_POST['from_date'])) && ($b['cr_head_id']==$party_id || $b['dr_head_id']==$party_id) && ($b['company_id']==$_SESSION['selectCompnayId'])){
-                   if($b['cr_head_id']==$party_id){
-                      $total_cr+=$b['amount'];
-                   } elseif ($b['dr_head_id']==$party_id) {
-                      $total_dr+=$b['amount'];
-                   }
-               }
+              if($b['type']!="g.p.v" && $b['type']!="y.r.v"){
+                    if(($b['date']<db_date_input($_POST['from_date'])) && ($b['cr_head_id']==$party_id || $b['dr_head_id']==$party_id) && ($b['company_id']==$_SESSION['selectCompnayId'])){
+                       if($b['cr_head_id']==$party_id){
+                          $total_cr+=$b['amount'];
+                       } elseif ($b['dr_head_id']==$party_id) {
+                          $total_dr+=$b['amount'];
+                       }
+                   }  
+              }
             }
      }
     //calculate balance
@@ -943,16 +961,17 @@ if(isset($_POST['reportOfCashbook'])){
            foreach ($client_voucher_list as $b){
                if(($b['date']<db_date_input($_POST['from_date'])) && ($b['cr_head_id']==$party_id || $b['dr_head_id']==$party_id) && ($b['company_id']==$_SESSION['selectCompnayId'])){
                    if($b['cr_head_id']==$party_id){
-                      $total_cr+=$b['amount'];
-                   } elseif ($b['dr_head_id']==$party_id) {
-                      $total_dr+=$b['amount'];
-                   }
+                       $total_cr+=$b['amount'];
+                    } elseif ($b['dr_head_id']==$party_id) {
+                       $total_dr+=$b['amount'];
+                    }
+                  
                }
             }
      }
     //calculate balance
-    $balance+=$total_cr;
-    $balance-=$total_dr;
+    $balance-=$total_cr;
+    $balance+=$total_dr;
     
     //get list
     $data=$main->getDateRangeRecord("voucher","date",$from_date,$to_date,"id","ASC");

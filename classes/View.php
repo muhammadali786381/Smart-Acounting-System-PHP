@@ -140,7 +140,7 @@ class View extends Main{
         if($data!="NO_DATA"){
          foreach ($data as $row){
              if($row['company_id']==$_SESSION['selectCompnayId']){
-              echo  "<option value=".$row['id'].">(".$row['id'].") ".$row['name']." (".$this->viewStatus($row['status']).")</option>";
+              echo  "<option value=".$row['id'].">(".$row['id'].") ".$row['name']." B-".$row['buy_price']." S-".$row['sale_price']." (".$this->viewStatus($row['status']).")</option>";
              }
           }
        }

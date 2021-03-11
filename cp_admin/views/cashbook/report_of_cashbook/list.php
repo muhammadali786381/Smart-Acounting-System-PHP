@@ -56,20 +56,18 @@
                   <?php
                   if($data!="NO_DATA"):
                       foreach ($data as $row):
-                            if($row['company_id']==$_SESSION['selectCompnayId']):
+                        if(($row['cr_head_id']==$party_id || $row['dr_head_id']==$party_id)):
+                             if($row['company_id']==$_SESSION['selectCompnayId']):
                               
-                                 //calculate balance 
+                                    //calculate balance 
                                  if($row['cr_head_id']==$party_id){
-                                     $balance+=$row['amount'];
+                                     $balance-=$row['amount'];
                                      $total_cr+=$row['amount'];
                                  } 
-                                
                                  if($row['dr_head_id']==$party_id){
-                                     $balance-=$row['amount'];
+                                     $balance+=$row['amount'];
                                      $total_dr+=$row['amount'];
                                  } 
-                             
-                            
                             
                   ?>
                   <tr>
@@ -81,7 +79,7 @@
                       <td style="text-align:right"><?php echo currency_format($row['amount']);?></td>
                   </tr>
                  <?php 
-                              
+                                endif;
                             endif;
                       endforeach;
                    ?>   

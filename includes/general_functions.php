@@ -135,6 +135,26 @@ function getYaRazzaqHead(){
     return $head_id;
 }
 
+//get GrossProfit head
+function getGrossProfitHead(){
+    if($_SESSION['selectCompnayId']==1){
+        $head_id=148;
+    }elseif($_SESSION['selectCompnayId']==2){
+        $head_id=144;
+    }
+    return $head_id;
+}
+
+//get stockHead
+function getStockHead(){
+    if($_SESSION['selectCompnayId']==1){
+        $head_id=150;
+    }elseif($_SESSION['selectCompnayId']==2){
+        $head_id=149;
+    }
+    return $head_id;
+}
+
 
 
 
