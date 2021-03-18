@@ -32,6 +32,8 @@
                         <option value="">Select Party</option>
                         <?php
                         echo $view->selectActiveHead(4);
+                        echo $view->selectActiveHead(3);
+                        echo $view->selectActiveHead(2);
                         ?>
                     </select>
                     </div>

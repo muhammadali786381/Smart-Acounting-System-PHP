@@ -55,7 +55,7 @@
                   if($data!="NO_DATA"):
                       foreach ($data as $row):
                             if($row['company_id']==$_SESSION['selectCompnayId']):
-                         if($row['type']!="g.p.v" && $row['type']!="y.r.v"):
+                         
                          
                               if($row['cr_head_id']==$party_id || $row['dr_head_id']==$party_id):
                                  //calculate balance 
@@ -80,7 +80,6 @@
                       <td style="text-align:right"><?php echo ($balance>=0)?abs($balance)." CR":abs($balance)." DR";?></td>
                   </tr>
                  <?php 
-                                 endif;
                               endif; 
                             endif;
                       endforeach;

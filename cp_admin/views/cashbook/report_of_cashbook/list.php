@@ -16,12 +16,9 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                    <h3 style="text-align:center;">
-                     <?php echo $get_cashbook_detail['company_name']." [".$get_cashbook_detail['company_name']." (".$get_cashbook_detail['cell_1'].") ]"?>
+                    <h3 style="text-align:center;" class="text-uppercase">
+                     <?php echo "Cash Book Report";?>
                     </h3>
-                    <h5 style="text-align:center;">
-                     <?php echo $get_cashbook_detail['address'];?>
-                    </h5>
                 </div>
                 <!-- /.col -->
               </div>    
@@ -37,18 +34,20 @@
                   <thead>
                   <tr>
                     <th width="10%">Date</th>
+                    <th width="5%">VHR</th>
 <!--                    <th width="40%">Description</th>-->
-                    <th width="35%">Credit</th>
+                    <th width="30%">Credit</th>
                     <th width="10%">Amount</th>
-                    <th width="35%">Debit</th>
+                    <th width="30%">Debit</th>
                     <th width="10%">Amount</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
                       <td class="text-bold"><?php echo "---------";?></td>
-                      <td class="text-bold"><?php echo "Opening Balance";?></td>
-                       <td class="text-bold" style="text-align:right"><?php echo "";?></td>
+                      <td class="text-bold" colspan="3"><?php echo "Opening Balance";?></td>
+<!--                      <td class="text-bold" style="text-align:right"><?php echo "";?></td>
+                       <td class="text-bold" style="text-align:right"><?php echo "";?></td>-->
                       <td class="text-bold" style="text-align:right"><?php echo "";?></td>
 <!--                      <td class="text-bold" style="text-align:right"><?php echo "";?></td>-->
                       <td class="text-bold" style="text-align:right"><?php echo currency_format($balance);?></td>
@@ -56,7 +55,7 @@
                   <?php
                   if($data!="NO_DATA"):
                       foreach ($data as $row):
-                        if(($row['cr_head_id']==$party_id || $row['dr_head_id']==$party_id)):
+                        if($row['type']=="c.r.v" || $row['type']=="c.p.v" || $row['type']=="j.v" || $row['type']=="b.r.v" || $row['type']=="b.p.v"):
                              if($row['company_id']==$_SESSION['selectCompnayId']):
                               
                                     //calculate balance 
@@ -72,7 +71,7 @@
                   ?>
                   <tr>
                       <td><?php echo db_date_output($row['date']);?></td>
-<!--                      <td><?php echo $row['note'];?></td>-->
+                      <td class="text-uppercase"><?php echo $row['type'];?></td>
                       <td style="text-align:left"><?php echo $view->viewHeadName($row['cr_head_id']);?></td></td>
                       <td style="text-align:right"><?php echo currency_format($row['amount']);?></td>
                       <td style="text-align:left"><?php echo $view->viewHeadName($row['dr_head_id']);?></td>
@@ -85,8 +84,9 @@
                    ?>   
                   <tr>
                       <td class="text-bold"><?php echo "---------";?></td>
-                      <td class="text-bold"><?php echo "Cash in hand";?></td>
-                      <td class="text-bold" style="text-align:right"><?php echo "";?></td>
+                      <td class="text-bold" colspan="3"><?php echo "Cash in hand";?></td>
+<!--                      <td class="text-bold" style="text-align:right"><?php echo "";?></td>
+                      <td class="text-bold" style="text-align:right"><?php echo "";?></td>-->
                        <td class="text-bold" style="text-align:right"><?php echo "";?></td>
 <!--                      <td class="text-bold" style="text-align:right"><?php echo "";?></td>-->
                       <td class="text-bold" style="text-align:right"><?php echo currency_format($balance); ?></td>

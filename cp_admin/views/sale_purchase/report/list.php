@@ -88,12 +88,14 @@
                             }
                             //set note
                             $invoice_summery=$main->getSingleRecord("product_transation","id",$row['invoice_id']);
+                            //get head details
+                            $head_detail=$main->getSingleRecord("account_head","id",$invoice_summery['head_id']);
                   ?>
                   <tr>
                       <td><?php echo $i;?></td>
                       <td><?php echo db_date_output($row['date']);?></td>
                       <td><?php echo $invoice_summery['prefix_id'].$invoice_summery['id'];?></td>
-                      <td><?php echo $invoice_summery['note'];?></td>
+                      <td><?php echo $head_detail['company_name']. " <br> " .$invoice_summery['note'];?></td>
                       <td style="text-align:right"><?php echo ($row['type']=="2")?$row['qty']." &#x2715; ".$row['buy_price']."=".currency_format($buy):"-";?></td>
                       <td style="text-align:right"><?php echo ($row['type']=="1")?$row['qty']." &#x2715; ".$row['sale_price']."=".currency_format($sale):"-";?></td>
                       <td style="text-align:right"><?php echo $stock;?></td>

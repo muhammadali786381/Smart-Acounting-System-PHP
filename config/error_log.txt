@@ -2138,3 +2138,22 @@ Stack trace:
 [11-Mar-2021 17:27:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
 [11-Mar-2021 17:27:42 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
 [11-Mar-2021 17:27:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[14-Mar-2021 11:04:47 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[14-Mar-2021 11:04:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[14-Mar-2021 11:04:52 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\purchase\list.php on line 24
+[14-Mar-2021 11:04:52 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\purchase\list.php on line 24
+[14-Mar-2021 11:54:05 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\purchase\list.php on line 24
+[14-Mar-2021 11:54:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\purchase\list.php on line 24
+[14-Mar-2021 11:54:30 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\purchase\list.php on line 24
+[14-Mar-2021 11:54:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\purchase\list.php on line 24
+[14-Mar-2021 11:54:41 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[14-Mar-2021 11:54:41 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[14-Mar-2021 11:55:29 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[14-Mar-2021 11:55:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[14-Mar-2021 11:55:44 Europe/Berlin] PHP Notice:  Undefined index: head_id in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\report\list.php on line 92
+[14-Mar-2021 11:55:44 Europe/Berlin] PHP Warning:  Illegal string offset 'company_name' in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\report\list.php on line 98
+[14-Mar-2021 11:55:44 Europe/Berlin] PHP Notice:  Undefined index: head_id in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\report\list.php on line 92
+[14-Mar-2021 11:55:44 Europe/Berlin] PHP Warning:  Illegal string offset 'company_name' in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\report\list.php on line 98
+[14-Mar-2021 15:06:46 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[14-Mar-2021 15:06:46 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[14-Mar-2021 15:06:46 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50

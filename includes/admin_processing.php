@@ -564,7 +564,8 @@ if(isset($_POST['createNewSaleVoucher'])){
                  "type"=> remove_xss("y.r.v"),
                  "date"=> remove_xss(db_date_input($_POST['inv_date'])),
                  "cr_head_id"=> remove_xss(getYaRazzaqHead()),
-                 "dr_head_id"=> remove_xss($_POST['head_id']),
+                 "dr_head_id"=> remove_xss(getStockHead()),
+                 //"dr_head_id"=> remove_xss($_POST['head_id']),
                  "note"=> remove_xss($_POST['note']." [YR-". $view->app_config("APP_YA_RAZZAQ_PERCENT"). "%]"),
                  "amount"=> remove_xss($y_r_amount),
                  "extra_amount"=> remove_xss(0.00),
@@ -579,7 +580,8 @@ if(isset($_POST['createNewSaleVoucher'])){
                  "type"=> remove_xss("g.p.v"),
                  "date"=> remove_xss(db_date_input($_POST['inv_date'])),
                  "cr_head_id"=> remove_xss(getGrossProfitHead()),
-                 "dr_head_id"=> remove_xss($_POST['head_id']),
+                 "dr_head_id"=> remove_xss(getStockHead()),  
+                 //"dr_head_id"=> remove_xss($_POST['head_id']),
                  "note"=> remove_xss($_POST['note']." [GP]"),
                  "amount"=> remove_xss($gprofit),
                  "extra_amount"=> remove_xss(0.00),
@@ -915,7 +917,6 @@ if(isset($_POST['partyLedgerQuery'])){
     //calculate balance
     if($client_voucher_list!="NO_DATA"){
            foreach ($client_voucher_list as $b){
-              if($b['type']!="g.p.v" && $b['type']!="y.r.v"){
                     if(($b['date']<db_date_input($_POST['from_date'])) && ($b['cr_head_id']==$party_id || $b['dr_head_id']==$party_id) && ($b['company_id']==$_SESSION['selectCompnayId'])){
                        if($b['cr_head_id']==$party_id){
                           $total_cr+=$b['amount'];
@@ -923,7 +924,6 @@ if(isset($_POST['partyLedgerQuery'])){
                           $total_dr+=$b['amount'];
                        }
                    }  
-              }
             }
      }
     //calculate balance

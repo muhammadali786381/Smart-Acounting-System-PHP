@@ -55,7 +55,7 @@
                     <input type="number" step="0.01" name="amount" placeholder="0.00" class="form-control" required="">
                     </div>
                      
-                    <div class="col-sm-6">
+                     <div class="col-sm-6" style="display:none">
                     <label class="text-primary"><i class="fas fa-money-bill-wave"></i> Extra Amount</label>
                     <input type="number" step="0.01" name="extra_amount" value="0.00" class="form-control">
                     </div>

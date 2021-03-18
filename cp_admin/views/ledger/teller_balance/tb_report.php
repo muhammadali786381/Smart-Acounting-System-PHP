@@ -49,19 +49,29 @@
                           //add last opening balance
                           $cr+=$row['opening_cr_balance'];
                           $dr+=$row['opening_dr_balance'];
+                          //calculate party balance
+                          $balance=$cr-$dr;
                           
                           //calculate total
-                          $total_dr+=$dr;
-                          $total_cr+=$cr;
+                          if($balance<0){
+                           $total_dr+=abs($balance);
+                          }
                           
+                          if($balance>=0){
+                             $total_cr+=abs($balance);
+                          }
+//                          //calculate total
+//                          $total_dr+=$dr;
+//                          $total_cr+=$cr;
+//                          
                           
                         ?>
                       
                   <tr>
                     <td><?php echo $row['id'];?></td>
                     <td><?php echo $row['company_name'];?></td>
-                    <td><?php echo currency_format($dr);?></td>
-                    <td><?php echo currency_format($cr);?></td>
+                    <td><?php echo ($balance<0)?currency_format(abs($balance)):"-";?></td>
+                    <td><?php echo ($balance>=0)?currency_format(abs($balance)):"-";?></td>
                     <td><span class="badge badge-info"><?php echo $view->viewHeadType($row['head_type']);?></span></td>
                     <!--<i class="fa fa-eye"></i> -->
 <!--                    <td><button  type="button" href="#" class="d-sm-inline-block btn btn-outline-danger shadow-sm btn-view"  data-toggle="modal" data-target="#"><i class="fas fa-eye fa-sm text-white-100"></i> View</a></td>-->
