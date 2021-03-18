@@ -1,3 +1,3 @@
 # SAS (Smart Accouning System)
 Live at: 
-https://sas.alphasmspk.com/login
+https://sasdemo.alphasmspk.com/cp_admin
