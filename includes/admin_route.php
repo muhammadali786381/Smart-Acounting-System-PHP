@@ -344,6 +344,11 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
         include_once __DIR__.'/../'.ADMIN_DIR.'/views/ledger/party_ledger/report.php';
         break;
     
+        //cash-party-ledger
+        case "cash-party-ledger":
+        include_once __DIR__.'/../'.ADMIN_DIR.'/views/ledger/cash_party_ledger/report.php';
+        break;
+    
         //report-of-cashbook
         case "report-of-cashbook":
         include_once __DIR__.'/../'.ADMIN_DIR.'/views/cashbook/report_of_cashbook/report.php';

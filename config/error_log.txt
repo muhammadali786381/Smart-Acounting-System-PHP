@@ -2157,3 +2157,4 @@ Stack trace:
 [14-Mar-2021 15:06:46 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
 [14-Mar-2021 15:06:46 Europe/Berlin] PHP Notice:  Undefined variable: admin_city in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
 [14-Mar-2021 15:06:46 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\administrator\admin_profile.php on line 50
+[20-Mar-2021 00:01:17 Europe/Berlin] PHP Notice:  Array to string conversion in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\ledger\cash_party_ledger\list.php on line 80

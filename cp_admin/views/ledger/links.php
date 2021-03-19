@@ -37,6 +37,22 @@
                   <!--  /.info-box -->
                 </div>
                   <!-- /.col -->
+                  
+                  <div class="col-12 col-sm-6 col-md-3">
+                    <a href="<?php echo BASE_URL.ADMIN_DIR."/cash-party-ledger";?>"> 
+                  <div class="info-box">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-money-bill-wave"></i></span>
+                     <div class="info-box-content">
+                      <span class="info-box-text">Cash Ledger</span>
+                      <span class="info-box-number"><?php echo "";?></span>
+                    </div>
+              <!-- /.info-box-content -->
+                  </div>
+                        </a>
+                  <!--  /.info-box -->
+                </div>
+                  <!-- /.col -->
+                  
                 <div class="col-12 col-sm-6 col-md-3">
                     <a href="<?php echo BASE_URL.ADMIN_DIR."/monthly-sale";?>"> 
                   <div class="info-box mb-3">
