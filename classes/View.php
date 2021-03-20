@@ -196,6 +196,7 @@ class View extends Main{
      public function selectHeadType(){
       //1=>Cash 2=>Bank 3=>Client 4=>Supplier 
       echo  "<option value='1'>Bank</option>";    
+      echo  "<option value='2'>Bank</option>";    
       echo  "<option value='3'>Client</option>";  
       echo  "<option value='4'>Supplier</option>";  
      }
