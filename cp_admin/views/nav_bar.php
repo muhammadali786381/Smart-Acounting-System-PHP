@@ -247,6 +247,23 @@
             </a>
           </li>
           
+          <li class="nav-item">
+            <a href="<?php echo BASE_URL.ADMIN_DIR; ?>/update-head-routes" class="nav-link <?php echo ($url['1']=="update-head-routes")? "active":""; ?>">
+              <i class="nav-icon fas fa-map-marked"></i>
+              <p>
+                Update Heads Routes
+             </p>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="<?php echo BASE_URL.ADMIN_DIR; ?>/add-head-route" class="nav-link <?php echo ($url['1']=="add-head-route")? "active":""; ?>">
+              <i class="nav-icon fas fa-plus-circle"></i>
+              <p>
+                Add Head Routes
+             </p>
+            </a>
+          </li>
           
           <?php
           endif;

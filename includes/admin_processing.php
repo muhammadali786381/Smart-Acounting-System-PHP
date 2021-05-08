@@ -14,17 +14,17 @@ if(isset($_POST["adminLogin"]) && csrf_token_verify($_POST['csrf_token'])){
     //clean data
      $mail=remove_xss($_POST["userMail"]);
      $pass=remove_xss($_POST["userPass"]);
-     
      $result=$user->AdminLogin($mail,$pass);
      if($result=="error_login"){
      SweetAlert("Login Fail.",BASE_URL.ADMIN_DIR."/login");
     }else{
         if(!($user->isAdminActive($_SESSION['adminId']))){
             $user->insert_admin_log($_SESSION['adminId'],"Try login",get_real_user_ip()); 
-            SweetAlert("Your account has been deactivate", BASE_URL.ADMIN_DIR."/logout", "Error", "error");
+            session_unset(); 
+            SweetAlert("Your account has been deactivate", BASE_URL.ADMIN_DIR."/login", "Error", "error");
             exit();
         }
-      //header("location:".BASE_URL."index.php?dashboard"); 
+        //header("location:".BASE_URL."index.php?dashboard"); 
           $user->insert_admin_log($_SESSION['adminId'],"login",get_real_user_ip());        
 	  RedirectURL(BASE_URL.ADMIN_DIR."/dashboard");
     }
@@ -261,7 +261,8 @@ if(isset($_POST['createNewHead'])){
              "cell_1"=> remove_xss($_POST['cell_1']),
              "cell_2"=> remove_xss($_POST['cell_2']),
              "address"=> remove_xss($_POST['address']),
-             "head_type"=> remove_xss($_POST['head_type'])
+             "head_type"=> remove_xss($_POST['head_type']),
+             "head_route_id"=> remove_xss($_POST['head_route_id'])
              ));
              //check user insert reccord
              if($id!=false){
@@ -273,6 +274,28 @@ if(isset($_POST['createNewHead'])){
              }
              
     
+ exit();  
+}
+
+//create new head route
+if(isset($_POST['createNewRoute'])){
+    
+    //insert basic user data into user table
+    $id=$main->insert_record("head_route",
+            array(
+             "company_id"=> remove_xss($_SESSION['selectCompnayId']),
+             "route_name"=> remove_xss($_POST['route_name']),
+             "day_name"=> remove_xss($_POST['day_name']),
+             "description"=> remove_xss($_POST['description']),
+             ));
+             //check user insert reccord
+             if($id!=false){
+               $user->insert_admin_log($_SESSION['adminId'],"New head route created",remove_xss($id)); 
+               SweetAlert("Created successfully.", BASE_URL.ADMIN_DIR."/".$url['1'], "Success", "success");
+               }else{
+                SweetAlert("Operation Fail.", BASE_URL.ADMIN_DIR."/".$url['1'], "ERROR", "error");
+                exit();
+             }
  exit();  
 }
 
@@ -834,11 +857,23 @@ if(isset($_POST['updateProductPrice'])){
 
 
 
-//update products price
+//update opening balance
 if(isset($_POST['updateAccountHeadOpeningBalance'])){
     $res=$main->update_record("account_head",["id"=>remove_xss($_POST['id'])],["opening_dr_balance"=>remove_xss($_POST['opening_dr_balance']),"opening_cr_balance"=>remove_xss($_POST['opening_cr_balance'])]);
     if($res=="UPDATED"){
         $user->insert_admin_log($_SESSION['adminId'],"Update Head Opening Balance",remove_xss(remove_xss($_POST['id'])));
+        SweetAlert("Update Successfuly", BASE_URL.$url['0']."/".$url['1'], "Success", "success");
+    }else{
+        SweetAlert("Fail.", BASE_URL.$url['0']."/".$url['1'], "ERROR", "error");
+    }
+   exit(); 
+}
+
+//update head route
+if(isset($_POST['updateHeadRoute'])){
+    $res=$main->update_record("account_head",["id"=>remove_xss($_POST['id'])],["head_route_id"=>remove_xss($_POST['head_route_id'])]);
+    if($res=="UPDATED"){
+        $user->insert_admin_log($_SESSION['adminId'],"Update Head Route",remove_xss(remove_xss($_POST['id'])));
         SweetAlert("Update Successfuly", BASE_URL.$url['0']."/".$url['1'], "Success", "success");
     }else{
         SweetAlert("Fail.", BASE_URL.$url['0']."/".$url['1'], "ERROR", "error");

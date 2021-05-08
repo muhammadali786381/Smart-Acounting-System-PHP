@@ -466,7 +466,14 @@ function currency_format($number,$decimal=0){
             global $view;
             //use-> echo db_date_output("2020-04-25");
             return $view->app_config("APP_CURRENCY_SYMBOL")." ".number_format($number,$decimal);
-        }         
+        }     
+        
+       //currency format for view
+function percentage_format($number,$decimal=2,$is_show_sign=1){
+            //[]-> optional
+            //use-> echo percentage_format($value,[$decimal,$is_show_sign]);
+            return ($is_show_sign==1)?number_format($number,$decimal)."%":number_format($number,$decimal);
+        }          
         
         
   //send sms function      

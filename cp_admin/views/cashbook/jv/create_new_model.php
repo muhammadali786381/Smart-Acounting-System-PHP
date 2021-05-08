@@ -28,10 +28,12 @@
                  <div class="form-group row">
                     <div class="col-sm-12">
                     <label class="text-primary"><i class="fas fa-user"></i> Party (DR)</label>
-                    <select class="form-control select2" name="dr_head_id" required="">
+                    <select class="form-control select2 head-select dr-head" name="dr_head_id" required="">
                         <option value="">Select DR Party</option>
                         <?php
-                        echo $view->selectAllHead();
+                        echo $view->selectActiveHead(4);
+                        echo $view->selectActiveHead(3);
+                        echo $view->selectActiveHead(2);
                         ?>
                     </select>
                     </div>
@@ -40,10 +42,12 @@
                    <div class="form-group row">
                     <div class="col-sm-12">
                     <label class="text-primary"><i class="fas fa-user"></i> Party (CR)</label>
-                    <select class="form-control select2" name="cr_head_id" required="">
+                    <select class="form-control select2 head-select cr-head" name="cr_head_id" required="">
                         <option value="">Select CR Party</option>
                         <?php
-                        echo $view->selectAllHead();
+                        echo $view->selectActiveHead(4);
+                        echo $view->selectActiveHead(3);
+                        echo $view->selectActiveHead(2);
                         ?>
                     </select>
                     </div>
@@ -71,7 +75,7 @@
                      
                     
                      
-               <button  type="submit" name="createNewJournalVoucher" class="btn btn-primary btn-user btn-block">
+               <button  type="submit" name="createNewJournalVoucher" class="btn btn-primary btn-user btn-block submit-btn">
                     <i class="far fa-paper-plane"></i>  Create
                </button>
                      
@@ -83,4 +87,21 @@
       </div>
     </div>
   </div>
+        
+
+  <script>
+  $(document).ready(function () {
+    $('.head-select').on('change',function(){
+     var selected_cr_head = $(".cr-head option:selected").val();
+     var selected_dr_head = $(".dr-head option:selected").val();
+     if(selected_cr_head === selected_dr_head) {
+           $('.submit-btn').prop('disabled',true);
+           swal("Same heads not allowed.");
+      }else{
+          $('.submit-btn').prop('disabled',false);
+      }
+    });
+  });
+</script>
+     
  

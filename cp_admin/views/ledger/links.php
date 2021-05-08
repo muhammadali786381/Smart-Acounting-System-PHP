@@ -54,12 +54,12 @@
                   <!-- /.col -->
                   
                 <div class="col-12 col-sm-6 col-md-3">
-                    <a href="<?php echo BASE_URL.ADMIN_DIR."/monthly-sale";?>"> 
+                    <a href="<?php echo BASE_URL.ADMIN_DIR."/ledger-route-print";?>"> 
                   <div class="info-box mb-3">
-                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-clipboard"></i></span>
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-map-marked"></i></span>
 
                     <div class="info-box-content">
-                      <span class="info-box-text">Monthly Sale</span>
+                      <span class="info-box-text">Ledger Route Print</span>
                       <span class="info-box-number"><?php echo "";?></span>
                     </div>
           <!-- /.info-box-content -->

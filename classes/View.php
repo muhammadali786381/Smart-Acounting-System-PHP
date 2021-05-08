@@ -78,7 +78,7 @@ class View extends Main{
         if($data!="NO_DATA"){
          foreach ($data as $row){
              if($row['status']==1 && $row['company_id']==$_SESSION['selectCompnayId'] && $row['head_type']==$type){
-              echo  "<option value=".$row['id'].">(".$row['id'].") ".$row['company_name']."-".$row['owner_name']." (".$this->viewStatus($row['status']).")</option>";
+              echo  "<option value=".$row['id'].">(".$row['id'].") ".strtoupper($row['company_name'])." - ".$row['address']." - ".$row['owner_name']." (".$this->viewStatus($row['status']).")</option>";
              }
           }
        }
@@ -90,7 +90,7 @@ class View extends Main{
         if($data!="NO_DATA"){
          foreach ($data as $row){
              if($row['status']==0 && $row['company_id']==$_SESSION['selectCompnayId'] && $row['head_type']==$type){
-              echo  "<option value=".$row['id'].">(".$row['id'].") ".$row['company_name']."-".$row['owner_name']." (".$this->viewStatus($row['status']).")</option>";
+              echo  "<option value=".$row['id'].">(".$row['id'].") ".strtoupper($row['company_name'])."-".$row['owner_name']." (".$this->viewStatus($row['status']).")</option>";
              }
           }
        }
@@ -169,6 +169,18 @@ class View extends Main{
        }
      }
      
+     //get all head dropdown list
+    public function selectHeadRoute(){
+       $data= $this->getAllRecord("head_route");
+        if($data!="NO_DATA"){
+         foreach ($data as $row){
+             if($row['company_id']==$_SESSION['selectCompnayId']){
+              echo  "<option value=".$row['id'].">(".$row['id'].") ".$row['route_name']."-".$row['day_name']."</option>";
+             }
+          }
+       }
+     } 
+     
      //get admin type dropdown list
      public function selectAdminType(){
       //'Super Admin','Admin','Support Person','Data Entry'
@@ -195,7 +207,6 @@ class View extends Main{
      //get admin type dropdown list
      public function selectHeadType(){
       //1=>Cash 2=>Bank 3=>Client 4=>Supplier 
-      echo  "<option value='1'>Bank</option>";    
       echo  "<option value='2'>Bank</option>";    
       echo  "<option value='3'>Client</option>";  
       echo  "<option value='4'>Supplier</option>";  

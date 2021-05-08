@@ -76,7 +76,7 @@ class Main{
 		}
 		return "NO_DATA";
         }
-    
+        
    //get any table
    public function getAllRecord($table){
 		$pre_stmt = $this->con->prepare("SELECT * FROM ".$table);
@@ -365,7 +365,7 @@ class Main{
 // $rate=intval($rate);
 // echo $rate; 
             //user of query function for any query
-////$res=$test->query("DELETE FROM users WHERE user_id='1'");
+//$res=$test->query("DELETE FROM users WHERE user_id='1'");
 //$row=$res->fetch_assoc();
 //$get_row=$test->get_result();
 //echo "<pre>";

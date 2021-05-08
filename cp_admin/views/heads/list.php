@@ -48,10 +48,10 @@
                       
                   <tr>
                     <td><?php echo $row['id'];?></td>
-                    <td><?php echo $row['company_name'];?></td>
-                    <td><?php echo $row['owner_name'];?></td>
+                    <td class="text-uppercase"><?php echo $row['company_name'];?></td>
+                    <td class="text-uppercase"><?php echo $row['owner_name'];?></td>
                     <td><?php echo $row['cell_1']."<br>".$row['cell_2'];?></td>
-                    <td><?php echo $row['address'];?></td>
+                    <td class="text-uppercase"><?php echo $row['address'];?></td>
                     <td><span class="badge badge-info"><?php echo $view->viewHeadType($row['head_type']);?></span></td>
                     <!--<i class="fa fa-eye"></i> -->
                     <td><button  type="button" href="#" class="d-sm-inline-block btn btn-outline-danger shadow-sm btn-view"  data-toggle="modal" data-target="#"><i class="fas fa-eye fa-sm text-white-100"></i> View</a></td>

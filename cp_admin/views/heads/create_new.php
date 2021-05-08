@@ -55,7 +55,20 @@
                         ?>
                     </select>
                     </div>
-                   </div>    
+                   </div>  
+                     
+                  <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label class="text-primary"><i class="fas fa-money-bill-wave"></i> Route <small>(Select in case type is Client)</small></label>
+                    <select name="head_route_id" id="head_route_id" class="form-control select2">
+                        <option value="">Select Route</option>
+                        <?php
+                        echo $view->selectHeadRoute();
+                        ?>
+                    </select>
+                   </div>
+                 </div>   
+                     
                  
                     
                      

@@ -37,3 +37,16 @@ INSERT INTO `account_head` (`id`, `company_id`, `company_name`, `owner_name`, `c
 ALTER TABLE `voucher` CHANGE `type` `type` ENUM('c.r.v','c.p.v','b.p.v','b.r.v','j.v','s.v','p.v','y.r.v','g.p.v') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'y.r.v=> ya Razzaq voucher'; 
 
 //above done
+
+
+
+CREATE TABLE `zf_accounting`.`head_route` ( `id` INT NOT NULL AUTO_INCREMENT , `route_name` VARCHAR(125) NOT NULL , `day_name` VARCHAR(125) NULL DEFAULT NULL , `description` VARCHAR(225) NULL DEFAULT NULL , `company_id` INT NOT NULL , `is_editable` TINYINT NOT NULL DEFAULT '1' , PRIMARY KEY (`id`), UNIQUE (`route_name`)) ENGINE = InnoDB; 
+
+//no need
+INSERT INTO `head_route` (`id`, `route_name`, `day_name`, `description`, `company_id`, `is_editable`) VALUES (NULL, 'No Route Able Head 1', NULL, NULL, '1', '0'); 
+INSERT INTO `head_route` (`id`, `route_name`, `day_name`, `description`, `company_id`, `is_editable`) VALUES (NULL, 'No Route Able Head 2', NULL, NULL, '2', '0'); 
+//
+
+ALTER TABLE `account_head` ADD `head_route_id` INT NULL DEFAULT NULL AFTER `opening_dr_balance`; 
+
+//above done

@@ -88,8 +88,8 @@
                       <td><?php echo $i; ?></td>
                       <td><?php echo $product_data['name']; ?></td>
                       <td><?php echo $row['qty']; ?></td>
-                      <td><?php echo number_format($row['sale_price'],2); ?></td>
-                      <td><?php echo number_format($row['sale_price']*$row['qty'],2); ?></td>
+                      <td><?php echo number_format($row['buy_price'],2); ?></td>
+                      <td><?php echo number_format($row['buy_price']*$row['qty'],2); ?></td>
                     </tr>
                    <?php
                      $i++;
@@ -117,15 +117,15 @@
                     <table class="table">
                       <tr>
                         <th style="width:50%">Subtotal:</th>
-                        <td><?php echo number_format($invoice_data['sale_total'],2);?></td>
+                        <td><?php echo number_format($invoice_data['buy_total'],2);?></td>
                       </tr>
                       <tr>
                         <th>Last Balance:</th>
-                        <td><?php echo number_format(0.00,2);?></td>
+                        <td><?php echo ($last_balance<0 )?number_format(abs($last_balance)-$invoice_data['buy_total'],2):number_format($last_balance-$invoice_data['buy_total'],2);?></td>
                       </tr>
                       <tr>
                         <th>Total:</th>
-                        <td><?php echo number_format($invoice_data['sale_total'],2);?></td>
+                        <td><?php echo ($last_balance<0 )? number_format(abs($last_balance),2)." DR":number_format(abs($last_balance),2)." CR";?></td>
                       </tr>
                     </table>
                   </div>

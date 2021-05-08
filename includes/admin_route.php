@@ -72,6 +72,28 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
         
         break;
         
+        //product list
+        case "update-head-routes":
+        if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:
+        //get all head
+        $data=$main->getAllConditionRecords("account_head","company_id",$_SESSION['selectCompnayId'],"id");
+        include_once __DIR__.'/../'.ADMIN_DIR.'/views/heads/head_route.php';  
+        endif;    
+        break;
+        
+        //product list
+        case "add-head-route":
+        if(!isSuperAdmin() && !isAccountant()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:
+        //get aa products
+        $data=$main->getAllConditionRecords("head_route","company_id",$_SESSION['selectCompnayId'],"id");
+        include_once __DIR__.'/../'.ADMIN_DIR.'/views/routes/list.php';  
+        endif;    
+        break;
+        
         //cash books
         case "cash-book":
          //load view
@@ -124,6 +146,21 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
         endif;
         break; 
     
+        //ledger-route-print
+        case "ledger-route-print":
+         if(!isSuperAdmin() && !isAccountant() && !isAdmin()):
+        SweetAlert("Access Deined!", BASE_URL.ADMIN_DIR."/dashboard", "Alert", "error");    
+        else:   
+         $data=$main->getAllConditionRecords("account_head","company_id",$_SESSION['selectCompnayId'],"id");
+        //get route detail
+        $route_detail="NO_DATA";
+            if(isset($_POST['route_id'])){
+                $route_detail=$main->getSingleRecord("head_route","id", remove_xss($_POST['route_id'])); 
+             }
+         //load view
+         include_once __DIR__.'/../'.ADMIN_DIR.'/views/ledger/ledger_route/report.php';
+        endif;
+        break; 
     
         //cash received voucher
         case "cash-received-voucher":
@@ -212,6 +249,14 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
                    $invoice_company=$main->getSingleRecord("company_list","id",$_SESSION['selectCompnayId']);
                    //get invoice head detail
                    $invoice_head=$main->getSingleRecord("account_head","id",$invoice_data['head_id']);
+                   //get and calculate last balance of party
+                          $cr=$main->sumValues("voucher","amount","cr_head_id",$invoice_data['head_id']);
+                          $dr=$main->sumValues("voucher","amount","dr_head_id",$invoice_data['head_id']);
+                          //add last opening balance
+                          $cr+=$invoice_head['opening_cr_balance'];
+                          $dr+=$invoice_head['opening_dr_balance'];
+                          //calculate party balance
+                          $last_balance=$cr-$dr;
                    include_once __DIR__.'/../'.ADMIN_DIR.'/views/sale_purchase/sale/view.php';
             }   
        
@@ -250,6 +295,14 @@ if(isset($_SESSION['adminRole']) && isAdminLogin()){
                    $invoice_company=$main->getSingleRecord("company_list","id",$_SESSION['selectCompnayId']);
                    //get invoice head detail
                    $invoice_head=$main->getSingleRecord("account_head","id",$invoice_data['head_id']);
+                   //get and calculate last balance of party
+                          $cr=$main->sumValues("voucher","amount","cr_head_id",$invoice_data['head_id']);
+                          $dr=$main->sumValues("voucher","amount","dr_head_id",$invoice_data['head_id']);
+                          //add last opening balance
+                          $cr+=$invoice_head['opening_cr_balance'];
+                          $dr+=$invoice_head['opening_dr_balance'];
+                          //calculate party balance
+                          $last_balance=$cr-$dr;
                    include_once __DIR__.'/../'.ADMIN_DIR.'/views/sale_purchase/purchase/view.php';
             }   
        break;
