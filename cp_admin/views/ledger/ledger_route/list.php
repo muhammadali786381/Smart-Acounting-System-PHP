@@ -89,10 +89,7 @@
                           endforeach;
                       endif;
                    ?>
-                  
-                  </tbody>
-                  <tfoot>
-                      <tr class="text-right text-bold">
+                   <tr class="text-right text-bold">
                           <td colspan="3">TOTAL (DR)</td><td  colspan="3"><?php echo currency_format($total_dr); ?></td>
                       </tr>
                       <tr class="text-right text-bold">
@@ -110,7 +107,10 @@
                       <tr class="text-right text-bold">
                           <td colspan="3">Recovery %</td><td  colspan="3"></td>
                       </tr>
-                </tfoot>
+                  </tbody>
+                   <tfoot>
+                      
+                  </tfoot>
                 </table>
                </div>
               </div>

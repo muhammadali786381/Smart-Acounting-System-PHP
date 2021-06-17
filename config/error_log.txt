@@ -2560,3 +2560,9 @@ Stack trace:
 [07-May-2021 02:48:42 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
 [07-May-2021 02:48:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
 [07-May-2021 03:09:08 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\view.php on line 128
+[19-May-2021 19:32:26 Europe/Berlin] PHP Notice:  Undefined variable: row in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[19-May-2021 19:32:26 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in E:\SoftwareInstall\xampp\htdocs\sas\cp_admin\views\sale_purchase\sale\list.php on line 24
+[24-May-2021 19:48:21 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in E:\SoftwareInstall\xampp\htdocs\sas\config\database.php on line 11
+[24-May-2021 19:48:25 Europe/Berlin] PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in E:\SoftwareInstall\xampp\htdocs\sas\config\database.php on line 11
